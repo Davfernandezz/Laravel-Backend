@@ -11,6 +11,7 @@ An API for managing users, books, and categories, built with Laravel 10+, Sanctu
     <li><a href="#-description">Description</a></li>
     <li><a href="#-objective">Objective</a></li>
     <li><a href="#️-stack">Stack</a></li>
+    <li><a href="#-project-details">Details</a></li>
     <li><a href="#-database-schema">Database Schema</a></li>
     <li><a href="#-local-installation">Local Installation</a></li>
     <li><a href="#-api-endpoints">API Endpoints</a></li>
