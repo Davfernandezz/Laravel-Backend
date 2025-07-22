@@ -58,6 +58,32 @@ Deliver a solid and scalable backend for a library system:
 
 ---
 
+## 📦 Project Details
+
+This project includes several important extra details:
+
+- **API Collection**  
+  The `/collection` folder contains the Postman or Thunder Client collection, ready to import and test all available endpoints easily.
+
+- **Database Export**  
+  Inside the `/database` folder, you’ll find a `.sql` export of the database schema and example data. This helps set up a local environment quickly.
+
+- **Environment Key (APP_KEY)**  
+  If your `.env` `APP_KEY` becomes compromised, you can regenerate it safely using: php artisan key:generate
+  This will automatically update your `.env` file.
+
+- **Error Handling**  
+A custom `Handler.php` is implemented to return clear, JSON-formatted error responses (404, 403, 422, 500)
+
+- **Authentication Details**  
+All protected routes require a Bearer token obtained during login. Add this token in the `Authorization` header for every secured request.
+
+- **Seeders for Example Data**  
+To refresh the database and load demo data, use: php artisan migrate:fresh --seed
+
+- **Environment Setup Reminder**  
+Don’t forget to copy `.env.example` to `.env` and configure your database credentials before running any artisan commands.
+
 ## 📋 Database Schema
 
 - **Category** → hasMany → Book  
