@@ -1,61 +1,309 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Laravel Backend API 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Welcome to my Laravel backend project, hope you like it! 🚀  
+An API for managing users, books, and categories, built with Laravel 10+, Sanctum, and MySQL.
 
-## About Laravel
+<br>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<details>
+  <summary>📑 Table of Contents</summary>
+  <ol>
+    <li><a href="#-description">Description</a></li>
+    <li><a href="#-objective">Objective</a></li>
+    <li><a href="#️-stack">Stack</a></li>
+    <li><a href="#-database-schema">Database Schema</a></li>
+    <li><a href="#-local-installation">Local Installation</a></li>
+    <li><a href="#-api-endpoints">API Endpoints</a></li>
+    <li><a href="#-future-improvements">Future Improvements</a></li>
+    <li><a href="#development">Development</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📖 Description
 
-## Learning Laravel
+Laravel backend is a project that offers:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- User authentication (register, login, logout)  
+- CRUD operations for books  
+- CRUD operations for categories  
+- Eloquent relationships (1:N category ➝ books)  
+- FormRequest validation  
+- Custom error handling  
+- Clear JSON API responses
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🎯 Objective
 
-## Laravel Sponsors
+Deliver a solid and scalable backend for a library system:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Efficiency** → Fast and secure management of books and categories  
+- **Security** → Token-based authentication with Laravel Sanctum  
+- **Clarity** → Clean, structured JSON responses for frontend consumption  
+- **Extensibility** → Easy to add policies, gates, resources, or tests
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🛠️ Stack
 
-## Contributing
+<div align="center">
+  <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel"/>
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"/>
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL"/>
+  <img src="https://img.shields.io/badge/Sanctum-000000?style=for-the-badge" alt="Sanctum"/>
+</div>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📋 Database Schema
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Category** → hasMany → Book  
+- **Book** → belongsTo → Category  
+- **User** → hasMany → PersonalAccessTokens
 
-## Security Vulnerabilities
+Migrations and seeders included.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🧾 Local Installation
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1️⃣ Clone the repository:
+```
+git clone <your-repo-url>
+```
+
+2️⃣ Install dependencies:
+```
+composer install
+```
+
+3️⃣ Copy environment file:
+```
+cp .env.example .env
+```
+
+4️⃣ Configure `.env` (DB_DATABASE, DB_USERNAME, DB_PASSWORD).
+
+5️⃣ Generate app key:
+```
+php artisan key:generate
+```
+
+6️⃣ Run migrations and seeders:
+```
+php artisan migrate:fresh --seed
+```
+
+7️⃣ Start the server:
+```
+php artisan serve
+```
+
+---
+
+## 🔌 API Endpoints
+
+<details>
+<summary>🔑 Authentication</summary>
+
+- **Register User**  
+Registers a new user with name, email, and password.
+
+```
+POST /api/register
+```
+
+**Body:**
+```json
+{
+    "name": "David",
+    "email": "david@david.com",
+    "password": "password",
+    "password_confirmation": "password"
+}
+```
+
+- **Login User**  
+Logs in a user and returns an authentication token.
+
+```
+POST /api/login
+```
+
+**Body:**
+```json
+{
+    "email": "david@david.com",
+    "password": "password"
+}
+```
+
+- **Logout User**  
+Logs out the authenticated user.
+
+```
+POST /api/logout
+```
+
+**Auth:** Bearer Token
+
+- **Get Authenticated User**  
+Returns data of the logged-in user.
+
+```
+GET /api/user
+```
+
+**Auth:** Bearer Token
+
+</details>
+
+<details>
+<summary>📚 Books</summary>
+
+- **List All Books**
+
+```
+GET /api/books
+```
+
+**Auth:** Bearer Token
+
+- **Create Book**
+
+```
+POST /api/books
+```
+
+**Body:**
+```json
+{
+    "title": "The Hobbit",
+    "description": "A fantasy novel",
+    "author": "J.R.R. Tolkien",
+    "category_id": 1
+}
+```
+
+**Auth:** Bearer Token
+
+- **Get Book Details**
+
+```
+GET /api/books/{id}
+```
+
+**Auth:** Bearer Token
+
+- **Update Book**
+
+```
+PUT /api/books/{id}
+```
+
+**Body:**
+```json
+{
+    "title": "The Hobbit: An Unexpected Journey",
+    "description": "Updated description",
+    "author": "J.R.R. Tolkien",
+    "category_id": 1
+}
+```
+
+**Auth:** Bearer Token
+
+- **Delete Book**
+
+```
+DELETE /api/books/{id}
+```
+
+**Auth:** Bearer Token
+
+</details>
+
+<details>
+<summary>🏷️ Categories</summary>
+
+- **List All Categories**
+
+```
+GET /api/categories
+```
+
+**Auth:** Bearer Token
+
+- **Create Category**
+
+```
+POST /api/categories
+```
+
+**Body:**
+```json
+{
+    "name": "Fantasy"
+}
+```
+
+**Auth:** Bearer Token
+
+- **Get Category Details**
+
+```
+GET /api/categories/{id}
+```
+
+**Auth:** Bearer Token
+
+- **Update Category**
+
+```
+PUT /api/categories/{id}
+```
+
+**Body:**
+```json
+{
+    "name": "Science Fiction"
+}
+```
+
+**Auth:** Bearer Token
+
+- **Delete Category**
+
+```
+DELETE /api/categories/{id}
+```
+
+**Auth:** Bearer Token
+
+</details>
+
+## 🔮 Future Improvements
+
+- Use Laravel Resources (BookResource, CategoryResource) for consistent API responses  
+- Implement Policies or Gates for fine-grained permissions  
+- Add PHPUnit tests for critical paths  
+- Add Swagger/OpenAPI documentation
+
+---
+
+## Development👨🏻‍💻
+
+```js
+const developer = "DavidFernandez";
+
+console.log("Developed by: " DavidFernandez);
+```
+
+
+## Contact📲
+- **David Fernandez Valle**
+  - [GitHub](https://github.com/Davfernandezz)
+  - [Linkedin](https://www.linkedin.com/in/david-fern%C3%A1ndez-valle-1b4461300/?originalSubdomain=es)
