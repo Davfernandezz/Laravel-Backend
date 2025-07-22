@@ -72,7 +72,7 @@ Migrations and seeders included.
 
 1️⃣ Clone the repository:
 ```
-git clone <your-repo-url>
+git clone https://github.com/Davfernandezz/Laravel-Backend.git
 ```
 
 2️⃣ Install dependencies:
