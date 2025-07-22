@@ -10,29 +10,50 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return Category::all();
+        $categories = Category::all();
+        return response()->json([
+            'status' => 'success',
+            'count' => $categories->count(),
+            'data' => $categories
+        ]);
     }
 
     public function store(StoreCategoryRequest $request)
     {
         $category = Category::create($request->validated());
-        return response()->json($category, 201);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Category created successfully',
+            'data' => $category
+        ], 201);
     }
 
     public function show(Category $category)
     {
-        return $category;
+        return response()->json([
+            'status' => 'success',
+            'data' => $category
+        ]);
     }
 
     public function update(StoreCategoryRequest $request, Category $category)
     {
         $category->update($request->validated());
-        return response()->json($category);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Category updated successfully',
+            'data' => $category
+        ]);
     }
 
     public function destroy(Category $category)
     {
+        $id = $category->id;
         $category->delete();
-        return response()->json(['message' => 'Category deleted']);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Category deleted successfully',
+            'deleted_id' => $id
+        ]);
     }
 }

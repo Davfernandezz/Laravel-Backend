@@ -10,29 +10,50 @@ class BookController extends Controller
 {
     public function index()
     {
-        return Book::with('category')->get();
+        $books = Book::with('category')->get();
+        return response()->json([
+            'status' => 'success',
+            'count' => $books->count(),
+            'data' => $books
+        ]);
     }
 
     public function store(StoreBookRequest $request)
     {
         $book = Book::create($request->validated());
-        return response()->json($book, 201);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Book created successfully',
+            'data' => $book
+        ], 201);
     }
 
     public function show(Book $book)
     {
-        return $book->load('category');
+        return response()->json([
+            'status' => 'success',
+            'data' => $book->load('category')
+        ]);
     }
 
     public function update(StoreBookRequest $request, Book $book)
     {
         $book->update($request->validated());
-        return response()->json($book);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Book updated successfully',
+            'data' => $book
+        ]);
     }
 
     public function destroy(Book $book)
     {
+        $id = $book->id;
         $book->delete();
-        return response()->json(['message' => 'Book deleted']);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Book deleted successfully',
+            'deleted_id' => $id
+        ]);
     }
 }
