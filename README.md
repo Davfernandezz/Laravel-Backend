@@ -88,7 +88,7 @@ Don’t forget to copy `.env.example` to `.env` and configure your database cred
 - **Basic Tests with PHPUnit**  
   Inside `/tests/Feature`, you’ll find basic tests for books and categories (creation and listing). Run them using `php artisan test` after seeding your database with `php artisan migrate:fresh --seed`.
 
-- **Resource-Based Responses** 
+- **Resource-Based Responses**  
 API responses are formatted using `Laravel Resources (BookResource, CategoryResource)` to ensure a clean and consistent JSON structure for frontend consumption.
 
 
