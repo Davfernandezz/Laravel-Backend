@@ -16,7 +16,7 @@ class BookFactory extends Factory
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
             'author' => $this->faker->name(),
-            'category_id' => Category::inRandomOrder()->first()->id,
+            'category_id' => Category::factory(),
         ];
     }
 }

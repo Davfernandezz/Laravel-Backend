@@ -85,6 +85,10 @@ To refresh the database and load demo data, use: `php artisan migrate:fresh --se
 - **Environment Setup Reminder**  
 Don’t forget to copy `.env.example` to `.env` and configure your database credentials before running any artisan commands.
 
+- **Basic Tests with PHPUnit**  
+  Inside `/tests/Feature`, you’ll find basic tests for books and categories (creation and listing). Run them using `php artisan test` after seeding your database with `php artisan migrate:fresh --seed`.
+
+
 ## 📋 Database Schema
 
 - **Category** → hasMany → Book  
@@ -127,6 +131,11 @@ php artisan migrate:fresh --seed
 7️⃣ Start the server:
 ```
 php artisan serve
+```
+
+8️⃣ (Optional) Run tests with PHPUnit:
+```
+php artisan test
 ```
 
 ---
